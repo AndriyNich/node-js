@@ -1,13 +1,19 @@
 const express = require("express");
 
 const ctrl = require("../../controllers/auth");
-
 const { registerSchema, loginSchema } = require("../../models/user");
-
 const { validateBody } = require("../../middlewares");
 
 const router = express.Router();
 
 router.post("/register", validateBody(registerSchema), ctrl.register);
+
+router.post("/login", validateBody(loginSchema), ctrl.login);
+
+// ToDo: Authentificate
+
+router.get("/current", ctrl.current);
+
+router.post("/logout", ctrl.logout);
 
 module.exports = router;
