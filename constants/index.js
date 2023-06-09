@@ -1,4 +1,4 @@
-const emailRegexp = require("./regexp");
+const { emailRegexp } = require("./regexp");
 
 module.exports = {
   emailRegexp,

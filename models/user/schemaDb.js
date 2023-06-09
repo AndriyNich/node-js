@@ -1,9 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const { emailRegexp } = require("../../constants");
+
 const { handleMongooseError } = require("../../helpers");
 
-const userSchema = new Shecma(
+const userSchema = new Schema(
   {
     email: {
       type: String,
