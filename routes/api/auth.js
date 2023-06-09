@@ -10,10 +10,10 @@ router.post("/register", validateBody(registerSchema), ctrl.register);
 
 router.post("/login", validateBody(loginSchema), ctrl.login);
 
-// ToDo: Authentificate
-
 router.get("/current", authenticate, ctrl.getCurrent);
 
 router.post("/logout", authenticate, ctrl.logout);
+
+// ToDo: router subscription
 
 module.exports = router;

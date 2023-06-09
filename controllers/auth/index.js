@@ -5,8 +5,6 @@ const login = require("./login");
 const getCurrent = require("./getCurrent");
 const logout = require("./logout");
 
-// ToDo: control wrapper
-
 module.exports = {
   register: ctrlWrapper(register),
   login: ctrlWrapper(login),
