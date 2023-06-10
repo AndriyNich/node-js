@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 
 const { User } = require("../../models/user");
+const { HttpError } = require("../../helpers");
 
 const register = async (req, res) => {
   const { email, password } = req.body;
@@ -16,7 +17,9 @@ const register = async (req, res) => {
 
   res
     .status(201)
-    .json({ email: newUser.email, subscription: newUser.subscription });
+    .json({
+      user: { email: newUser.email, subscription: newUser.subscription },
+    });
 };
 
 module.exports = register;

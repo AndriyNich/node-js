@@ -1,7 +1,11 @@
 const express = require("express");
 
 const ctrl = require("../../controllers/auth");
-const { registerSchema, loginSchema } = require("../../models/user");
+const {
+  registerSchema,
+  loginSchema,
+  subscriptionSchema,
+} = require("../../models/user");
 const { validateBody, authenticate } = require("../../middlewares");
 
 const router = express.Router();
@@ -14,6 +18,11 @@ router.get("/current", authenticate, ctrl.getCurrent);
 
 router.post("/logout", authenticate, ctrl.logout);
 
-// ToDo: router subscription
+router.patch(
+  "/",
+  authenticate,
+  validateBody(subscriptionSchema),
+  ctrl.updateSubscription
+);
 
 module.exports = router;

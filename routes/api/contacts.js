@@ -6,8 +6,6 @@ const { validateBody, authenticate, isValidId } = require("../../middlewares");
 
 const router = express.Router();
 
-// ToDo: set valid message to add and update
-
 router.post("/", authenticate, validateBody(addSchema), ctrl.add);
 
 router.delete("/:id", authenticate, isValidId, ctrl.deleteById);
@@ -24,7 +22,7 @@ router.put(
   ctrl.updateById
 );
 
-router.put(
+router.patch(
   "/:id/favorite",
   authenticate,
   isValidId,

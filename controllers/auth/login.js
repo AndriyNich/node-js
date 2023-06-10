@@ -6,7 +6,7 @@ const { SECRET_KEY } = process.env;
 const { User } = require("../../models/user");
 const { HttpError } = require("../../helpers");
 
-const messageConnectInvalid = "Email or password invalid";
+const messageConnectInvalid = "Email or password is wrong";
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -24,11 +24,11 @@ const login = async (req, res) => {
   const payload = {
     id: user._id,
   };
-  console.log(user._id);
+
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "1h" });
   await User.findByIdAndUpdate(user._id, { token });
 
-  res.json({ token });
+  res.json({ token, user: { email, subscription: user.subscription } });
 };
 
 module.exports = login;
