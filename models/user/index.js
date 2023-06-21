@@ -1,9 +1,9 @@
-const User = require("./schemaDb");
 const {
   registerSchema,
   loginSchema,
   subscriptionSchema,
 } = require("./schemaJoi");
+const User = require("./schemaDb");
 
 module.exports = {
   User,
