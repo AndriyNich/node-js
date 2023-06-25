@@ -9,6 +9,7 @@ const { HttpError } = require("../../helpers");
 const messageConnectInvalid = "Email or password is wrong";
 
 const login = async (req, res) => {
+  console.log(req.body);
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });

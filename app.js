@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const logger = require("morgan");
-const { upload } = require("./middlewares");
 const { pathToFile } = require("./constants");
 
 const { authRouter, contactsRouter } = require("./routes/api");
