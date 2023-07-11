@@ -2,6 +2,7 @@ const {
   registerSchema,
   loginSchema,
   subscriptionSchema,
+  emailSchema,
 } = require("./schemaJoi");
 const User = require("./schemaDb");
 
@@ -10,4 +11,5 @@ module.exports = {
   registerSchema,
   loginSchema,
   subscriptionSchema,
+  emailSchema,
 };
